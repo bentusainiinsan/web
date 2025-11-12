@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="logo.png">
     <title>Sonipat Home Service – 30+ Trusted Home Appliance Repair & Service</title>
-    
+  
     <!-- SEO Meta Tags -->
     <meta name="description" content="Get 30+ fast & reliable home appliance repair services in Sonipat. We fix ACs, refrigerators, washing machines, geysers, LED TVs, and more. 24x7 support with expert technicians. Book now!" />
-    <meta name="keywords" content="AC Repair Sonipat, ac service sonipat, ac service near me ,ac service near huda office ,Fridge Repair, Packer&Mover, Washing Machine Service, Septic Tank Cleaning, Geyser Installation, Chimney Cleaning, Electrician Services, Borewell Installation, Sewerage Unblock, Barber Booking, Masonry Work, CCTV Installation, RO Repair, Vehicle Booking, Car Repair, Parcel Delivery, LED TV Repair, Solar Panel Installation, Catering Service, Halwai, WiFi Installation, DTH Installation, Pest Control, RO Water Supply, Waiter Booking, Auto Battery, Inverter Battery, Building Materials, Sofa Cleaning, Water Tank Cleaning, Room On Rent, Movers & Packers Service in Sonipat , DJ Service in Sonipat, home services in Sonipat" />
+    <meta name="keywords" content="AC Repair Sonipat, ac service sonipat, ac service near me ,ac service near huda office ,Fridge Repair, Packer&Mover, Washing Machine Service, Septic Tank Cleaning, Geyser Installation, Chimney Cleaning, Electrician Services, Borewell Installation, Sewerage Unblock, Barber Booking, Masonry Work, CCTV Installation, RO Repair, Vehicle Booking, Car Repair, Parcel Delivery, LED TV Repair, Solar Panel Installation, Catering Service, Halwai, WiFi Installation, DTH Installation, Pest Control, RO Water Supply, Waiter Booking, Auto Battery, Inverter Battery, Building Materials, Sofa Cleaning, Water Tank Cleaning, Room On Rent, home services in Sonipat" />
     <meta name="author" content="Sonipat Home Service" />
     <link rel="canonical" href="https://sonipathomeservice.com/" />
     <meta name="robots" content="index, follow" />
@@ -58,15 +58,10 @@
               pulseShadow: {
                 '0%, 100%': { boxShadow: '0 0 0 0 rgba(var(--color-primary-rgb), 0.7)' },
                 '50%': { boxShadow: '0 0 0 10px rgba(var(--color-primary-rgb), 0)' },
-              },
-              slide: {
-                'from': { transform: 'translateX(0)' },
-                'to': { transform: 'translateX(-50%)' },
               }
             },
             animation: {
               'pulse-shadow': 'pulseShadow 2s infinite',
-              'slide': 'slide 25s linear infinite',
             }
           },
         },
@@ -101,6 +96,19 @@
         --color-text-secondary: #6c757d;
         --color-button-text: #ffffff;
       }
+
+      /* Styles for Offer Slider */
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        /* A card is w-64 (16rem) + its wrapper is px-3 (1.5rem). Total = 17.5rem. 8 cards * 17.5rem = 140rem */
+        100% { transform: translateX(calc(-17.5rem * 8)); }
+      }
+      .animate-scroll {
+        animation: scroll 40s linear infinite;
+      }
+      .group-hover\:pause:hover {
+        animation-play-state: paused;
+      }
     </style>
 <script type="importmap">
 {
@@ -134,6 +142,7 @@
           { title: "LED TV Repair & Installation", category: "Electronics", imageUrl: "drng17.png", href: "book-tv-repair.html" },
           { title: "Geyser Repair", category: "Heating", imageUrl: "five.png", href: "book-geyser-services.html" },
           { title: "Electrician Services", category: "Electrical", imageUrl: "drng7.png", href: "electricianservice.html" },
+          { title: "Plumber", category: "Fitting", imageUrl: "drng40.png", href: "book-plumber.html" },
           { title: "R.O install & Repair", category: "Purification", imageUrl: "drng13.png", href: "book-ro-serrvice.html" },
           { title: "Chimney Cleaning", category: "Kitchen", imageUrl: "six.png", href: "book-chimney-cleaning.html" },
           { title: "Septic Tank Cleaning", category: "Cleaning", imageUrl: "drng29.png", href: "book-safty-tank-service.html" },
@@ -150,7 +159,7 @@
           { title: "Halwai Booking", category: "Events", imageUrl: "drng20a.png", href: "book-halwai-service.html" },
           { title: "Cater Booking", category: "Events", imageUrl: "drng20.png", href: "comingsoon.html" },
           { title: "Barber Services", category: "Salon", imageUrl: "drng10.png", href: "book-barber-service.html" },
-          { title: "Ladies Corner", category: "Beauty", imageUrl: "drng37.jpeg", href: "index.html" },
+          { title: "Ladies Corner", category: "Beauty", imageUrl: "drng37.jpeg", href: "book-ladies-corner-service.html" },
           { title: "Vehicle Booking", category: "Transportation", imageUrl: "drng14.png", href: "book-vehicle-service.html" },
           { title: "Car Repair Services", category: "Automobile", imageUrl: "drng15.png", href: "automobile-repairing-services.html" },
           { title: "Fast Parcel Delivery", category: "Delivery", imageUrl: "drng16.png", href: "book-parcel-delivery-service-services.html" },
@@ -161,13 +170,6 @@
           { title: "Packers & Movers ", category: "logistics", imageUrl: "drng38.png", href: "book-packermover.html" },
           { title: "DJ Booking ", category: "Party", imageUrl: "drng39.jpg", href: "book-dj.html" },
           { title: "Loan", category: "Finance", imageUrl: "drng32.png", href: "#loan", status: "coming-soon" },
-      ];
-      
-      const offerData = [
-        { name: "AC Full Service", discount: "50% OFF", imageUrl: "drng1.png", href: "#" },
-        { name: "Fridge Gas Charging", discount: "₹300 OFF", imageUrl: "drng2.png", href: "#" },
-        { name: "RO Filter Change", discount: "25% OFF", imageUrl: "drng13.png", href: "#" },
-        { name: "Sofa Deep Cleaning", discount: "Flat 20% Off", imageUrl: "drng25.png", href: "#" },
       ];
 
       const themes = [
@@ -413,65 +415,67 @@
           </a>
         );
       };
+      
+      // --- NEW: Today's Offers Components ---
+      const offerServicesData = [
+          { ...servicesData[0], originalPrice: 599, offerPrice: 399 }, // AC
+          { ...servicesData[1], originalPrice: 499, offerPrice: 299 }, // Fridge
+          { ...servicesData[2], originalPrice: 499, offerPrice: 299 }, // Washing Machine
+          { ...servicesData[12], originalPrice: 999, offerPrice: 699 }, // Sofa Cleaning
+          { ...servicesData[11], originalPrice: 799, offerPrice: 499 }, // Pest Control
+          { ...servicesData[13], originalPrice: 699, offerPrice: 399 }, // Water Tank
+          { ...servicesData[4], originalPrice: 599, offerPrice: 349 }, // Geyser
+          { ...servicesData[7], originalPrice: 499, offerPrice: 249 }, // RO
+      ];
 
-      const Services = () => (
-        <section id="services-section" className="py-16 px-4 text-center">
-          <h2 className="text-4xl font-extrabold mb-3 text-secondary transition-colors">Our <span className="text-primary">30+</span> Home Services</h2>
-          <div className="inline-block h-1.5 w-32 bg-primary rounded mb-12 transition-colors"></div>
-          <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {servicesData.map((service, index) => <ServiceCard key={index} service={service} />)}
-          </div>
-        </section>
-      );
-
-      // --- NEW: Today's Offer Component (Sliding Carousel) ---
-      const TodayOfferCard = ({ offer }) => (
-        <div className="group relative overflow-hidden rounded-xl shadow-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-primary/30 bg-card border border-transparent hover:border-primary/50">
-          <img src={offer.imageUrl} alt={offer.name} className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-          
-          <div className="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold py-1 px-2 rounded-full shadow-sm animate-pulse transform group-hover:scale-105 transition-transform">
-            <i className="fas fa-tag mr-1 text-xs"></i> {offer.discount}
-          </div>
-          
-          <div className="absolute bottom-0 left-0 p-3 w-full text-left">
-            <h3 className="text-white text-base font-bold mb-1 drop-shadow">{offer.name}</h3>
-            <a href={offer.href} className="inline-block bg-primary text-button-text font-semibold py-1.5 px-3 rounded-md text-xs hover:bg-secondary transition-colors duration-300 shadow transform group-hover:scale-105">
-              Grab Offer <i className="fas fa-arrow-right ml-1"></i>
-            </a>
-          </div>
-        </div>
-      );
-
-      const TodayOffer = () => {
-        // Duplicate data for a seamless, infinite scroll effect
-        const extendedOfferData = [...offerData, ...offerData];
-
-        return (
-          <section id="today-offer-section" className="py-12 px-4 text-center bg-secondary/5">
-            <h2 className="text-4xl font-extrabold mb-3 text-secondary transition-colors">Today's <span className="text-primary">Special Offers</span></h2>
-            <div className="inline-block h-1.5 w-32 bg-primary rounded mb-10 transition-colors"></div>
-            
-            {/* Slider container with overflow hidden to create the marquee/carousel effect */}
-            <div className="relative container mx-auto overflow-hidden group">
-              {/* The track that will animate. It's a flex container holding all cards. */}
-              {/* Pauses animation on hover for better user experience */}
-              <div className="flex animate-slide group-hover:[animation-play-state:paused]">
-                {extendedOfferData.map((offer, index) => (
-                  // Each card wrapper
-                  <div key={index} className="flex-shrink-0 w-1/2 sm:w-1/2 lg:w-1/4 p-2 md:p-3">
-                    <TodayOfferCard offer={offer} />
+      const OfferCard = ({ service }) => {
+          const discount = Math.round(((service.originalPrice - service.offerPrice) / service.originalPrice) * 100);
+          return (
+              <div className="flex-shrink-0 w-64 bg-card rounded-2xl shadow-lg overflow-hidden transform transition-transform hover:scale-105 border-2 border-primary/20">
+                  <div className="relative">
+                      <img src={service.imageUrl} alt={service.title} className="w-full h-32 object-cover" />
+                      <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">
+                          {discount}% OFF
+                      </div>
                   </div>
-                ))}
+                  <div className="p-4">
+                      <h3 className="font-bold text-md text-text-primary truncate">{service.title}</h3>
+                      <div className="flex items-center justify-between mt-2">
+                          <div>
+                              <p className="text-lg font-extrabold text-primary">₹{service.offerPrice}</p>
+                              <p className="text-sm text-text-secondary line-through">₹{service.originalPrice}</p>
+                          </div>
+                          <a href={service.href} className="bg-primary text-button-text text-sm font-bold py-2 px-4 rounded-lg hover:bg-secondary transition-colors">
+                              Book Now
+                          </a>
+                      </div>
+                  </div>
               </div>
-              
-              {/* Fades on the left and right for a cleaner look as cards slide in/out */}
-              <div className="absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-background to-transparent pointer-events-none"></div>
-              <div className="absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-background to-transparent pointer-events-none"></div>
-            </div>
-          </section>
-        );
+          );
       };
+
+      const TodaysOffers = () => {
+          const loopedOffers = [...offerServicesData, ...offerServicesData];
+          return (
+              <div className="container mx-auto my-12">
+                   <h3 className="text-3xl font-extrabold mb-6 text-secondary transition-colors text-left">
+                      Today's <span className="text-primary">Offers</span>
+                  </h3>
+                  <div className="relative overflow-hidden group">
+                      <div className="flex animate-scroll group-hover:pause">
+                          {loopedOffers.map((service, index) => (
+                              <div key={index} className="px-3">
+                                  <OfferCard service={service} />
+                              </div>
+                          ))}
+                      </div>
+                       <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-r from-background to-transparent pointer-events-none"></div>
+                       <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-background to-transparent pointer-events-none"></div>
+                  </div>
+              </div>
+          );
+      };
+      // --- END: Today's Offers Components ---
 
       const Footer = () => (
         <footer id="contact" className="bg-gray-800 text-gray-300 py-12 px-4 hidden lg:grid">
@@ -505,6 +509,9 @@
                         <li className="hover:text-primary transition-colors flex items-center"><i className="fas fa-map-pin mr-2 w-4 text-center text-primary"></i> Kundli</li>
                         <li className="hover:text-primary transition-colors flex items-center"><i className="fas fa-map-pin mr-2 w-4 text-center text-primary"></i> Rai</li>
                         <li className="hover:text-primary transition-colors flex items-center"><i className="fas fa-map-pin mr-2 w-4 text-center text-primary"></i> Ganaur</li>
+                         <li className="hover:text-primary transition-colors flex items-center"><i className="fas fa-map-pin mr-2 w-4 text-center text-primary"></i> Gohana</li>
+                         <li className="hover:text-primary transition-colors flex items-center"><i className="fas fa-map-pin mr-2 w-4 text-center text-primary"></i> Kharkhoda</li>
+                        
                     </ul>
                 </div>
                 
@@ -638,8 +645,20 @@
             <Header />
             <main>
               <Hero />
-              <TodayOffer />
-              <Services />
+              <section id="services-section" className="py-16 px-4">
+                <div className="text-center">
+                    <h2 className="text-4xl font-extrabold mb-3 text-secondary transition-colors">Our <span className="text-primary">30+</span> Home Services</h2>
+                    <div className="inline-block h-1.5 w-32 bg-primary rounded mb-12 transition-colors"></div>
+                </div>
+
+                {/* TODAY'S OFFERS SLIDER */}
+                <TodaysOffers />
+
+                {/* ALL SERVICES GRID */}
+                <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
+                    {servicesData.map((service, index) => <ServiceCard key={index} service={service} />)}
+                </div>
+              </section>
             </main>
             <Stats />
             <Footer />
