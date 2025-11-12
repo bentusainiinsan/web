@@ -100,8 +100,8 @@
       /* Styles for Offer Slider */
       @keyframes scroll {
         0% { transform: translateX(0); }
-        /* A card is w-64 (16rem) + its wrapper is px-3 (1.5rem). Total = 17.5rem. 8 cards * 17.5rem = 140rem */
-        100% { transform: translateX(calc(-17.5rem * 8)); }
+        /* A card is w-44 (11rem) + its wrapper is px-3 (1.5rem). Total = 12.5rem. 8 cards * 12.5rem = 100rem */
+        100% { transform: translateX(calc(-12.5rem * 8)); }
       }
       .animate-scroll {
         animation: scroll 40s linear infinite;
@@ -431,21 +431,21 @@
       const OfferCard = ({ service }) => {
           const discount = Math.round(((service.originalPrice - service.offerPrice) / service.originalPrice) * 100);
           return (
-              <div className="flex-shrink-0 w-64 bg-card rounded-2xl shadow-lg overflow-hidden transform transition-transform hover:scale-105 border-2 border-primary/20">
+              <div className="flex-shrink-0 w-44 bg-card rounded-2xl shadow-lg overflow-hidden transform transition-transform hover:scale-105 border-2 border-primary/20">
                   <div className="relative">
-                      <img src={service.imageUrl} alt={service.title} className="w-full h-32 object-cover" />
+                      <img src={service.imageUrl} alt={service.title} className="w-full h-24 object-cover" />
                       <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">
                           {discount}% OFF
                       </div>
                   </div>
-                  <div className="p-4">
-                      <h3 className="font-bold text-md text-text-primary truncate">{service.title}</h3>
+                  <div className="p-2">
+                      <h3 className="font-bold text-sm text-text-primary truncate">{service.title}</h3>
                       <div className="flex items-center justify-between mt-2">
                           <div>
-                              <p className="text-lg font-extrabold text-primary">₹{service.offerPrice}</p>
-                              <p className="text-sm text-text-secondary line-through">₹{service.originalPrice}</p>
+                              <p className="text-sm font-extrabold text-primary">₹{service.offerPrice}</p>
+                              <p className="text-xs text-text-secondary line-through">₹{service.originalPrice}</p>
                           </div>
-                          <a href={service.href} className="bg-primary text-button-text text-sm font-bold py-2 px-4 rounded-lg hover:bg-secondary transition-colors">
+                          <a href={service.href} className="bg-primary text-button-text text-xs font-bold py-1.5 px-3 rounded-lg hover:bg-secondary transition-colors">
                               Book Now
                           </a>
                       </div>
